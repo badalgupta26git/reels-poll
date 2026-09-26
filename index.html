@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Question...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            text-align: center;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            overflow: hidden;
+        }
+        h1 { color: #ff4d6d; font-size: 1.8rem; margin-bottom: 30px; padding: 0 15px; line-height: 1.4; }
+        .btn-container { position: relative; width: 100%; height: 250px; }
+        button {
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            position: absolute;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            touch-action: none; /* Prevents default mobile zooming/scrolling on double tap */
+        }
+        #yes { background-color: #ff4d6d; color: white; left: 15%; top: 20px; }
+        #no { background-color: #6c757d; color: white; right: 15%; top: 20px; transition: 0.1s ease; }
+    </style>
+</head>
+<body>
+
+    <h1>Be honest... do you actually find the reels I send you funny? 🤔😂</h1>
+    
+    <div class="btn-container">
+        <button id="yes" onclick="alert('Haha I knew it! Standard is high over here. 😉')">Yes, they are gold!</button>
+        <button id="no" ontouchstart="dodge(event)" onmouseover="dodge(event)">No 🥱</button>
+    </div>
+
+    <script>
+        function dodge(e) {
+            e.preventDefault();
+            const noBtn = document.getElementById('no');
+            // Randomly scatter within safe mobile screen boundaries
+            const newX = Math.floor(Math.random() * 55) + 10; 
+            const newY = Math.floor(Math.random() * 180) + 10;
+            noBtn.style.left = newX + '%';
+            noBtn.style.top = newY + 'px';
+        }
+    </script>
+</body>
+</html>
